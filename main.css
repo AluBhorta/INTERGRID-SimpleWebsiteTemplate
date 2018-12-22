@@ -161,8 +161,8 @@ footer{
 
 /* media queries */
 @media (max-width: 700px){
-  .showcase > h1{
-    font-style: 2.5rem;
+  .showcase > h1, .portfolio > h1{
+    font-size: 2.5rem;
   }
   .top-container{
     grid-template-areas: 
@@ -189,7 +189,7 @@ footer{
       'top-box-b';
   }
   .showcase > h1{
-    font-style: 2rem;
+    font-size: 2.2rem;
   }
 }
 
