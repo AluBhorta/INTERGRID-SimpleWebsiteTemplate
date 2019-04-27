@@ -1,44 +1,49 @@
-
 /* css variables */
-:root{
+:root {
   --primary: #ddd;
   --dark: #333;
   --light: #fff;
-  --shadow: 0 1px 5px rgba(104, 104, 104, .8);
+  --shadow: 0 1px 5px rgba(104, 104, 104, 0.8);
 }
 
-html{
+html {
   box-sizing: border-box;
   font-family: Helvetica, sans-serif;
-  color: var(--dark)
+  color: var(--dark);
+  scroll-behavior: smooth;
 }
-body{
+body {
   background: #ccc;
-  margin: 30px 50px;
-  line-height: 1.4;
+  padding: 0;
+  margin: 0;
 }
-.btn{
+.btn {
   background: var(--dark);
   color: var(--light);
-  padding: .6rem 1.3rem;
+  padding: 0.6rem 1.3rem;
   border: var(--dark) 2px solid;
   text-decoration: none;
   border: 0;
 }
-.btn:hover{
+.btn:hover {
   background: var(--light);
   color: var(--dark);
   /* border: var(--light) 1px solid; 
   try fixing the box resizing issue when border added on hover
   */
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-img{
+img {
   max-width: 100%;
 }
-.wrapper{
+.wrapper {
   display: grid;
   grid-gap: 1.6rem;
+  margin: 0 50px;
+  line-height: 1.4;
+}
+.wrapper > section {
+  padding-top: 1rem;
 }
 hr {
   display: block;
@@ -47,46 +52,64 @@ hr {
 }
 
 /* navigation */
-.main-nav ul{
+.main-nav {
+  position: fixed;
+  top: 0;
+  z-index: 20;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.main-nav ul {
+  /* width: 90vw; */
+
   display: grid;
   grid-gap: 1.4rem;
   padding: 0;
+  margin: 0;
   list-style: none;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
 }
-.main-nav a{
+.main-nav a {
+  justify-content: center;
   background: var(--primary);
   display: block;
   text-decoration: none;
-  padding: 1rem;
+  padding: 1rem 3rem;
+  margin: 2px;
   color: var(--dark);
   text-align-last: center;
   text-transform: uppercase;
   font-size: 1.2rem;
+  border-radius: 4px;
   box-shadow: var(--shadow);
-  transition: .5s ease-in-out;
+  transition: 0.5s ease-in-out;
 }
-.main-nav a:hover{
+.main-nav a:hover {
   background: var(--dark);
   color: var(--light);
-  
+
   /* transition: .5s ease; */
 }
 
 /* top container */
-.top-container{
+.top-container {
   display: grid;
   grid-gap: 1.2rem;
-  grid-template-areas: 
-    'showcase showcase top-box-a'
-    'showcase showcase top-box-b';
+  grid-template-areas:
+    "showcase showcase top-box-a"
+    "showcase showcase top-box-b";
 }
 
-/* showcase */
-.showcase{
+/* showcase / home */
+#home {
+  padding-top: 4rem;
+}
+.showcase {
   grid-area: showcase;
   min-height: 400px;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(./img/web-presence.jpg);
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(./img/web-presence.jpg);
   background-size: cover;
   background-position: center;
   padding: 3rem;
@@ -97,40 +120,44 @@ hr {
   box-shadow: var(--shadow);
   color: var(--light);
 }
-.showcase > h1{
+.showcase > h1 {
   font-size: 4rem;
   margin-bottom: 0px;
 }
-.showcase > p{
+.showcase > p {
   font-size: 1.2rem;
   margin-top: 0px;
 }
 /* top boxes */
-.top-box-a{
+.top-box-a {
   grid-area: top-box-a;
 }
-.top-box-b{
+.top-box-b {
   grid-area: top-box-b;
 }
-.top-box{
+.top-box {
   background: var(--primary);
   display: grid;
   align-items: center;
   justify-items: center;
   box-shadow: var(--shadow);
-  padding: 1.5rem; 
+  padding: 1.5rem;
 }
-.top-box .price{
+.top-box .price {
   font-size: 2.2rem;
 }
 
-/* boxes */
-.boxes{
+/* boxes / about*/
+#about h1 {
+  font-size: 3.2rem;
+  text-align: center;
+}
+.boxes {
   display: grid;
   grid-gap: 1.2rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-.box{
+.box {
   background: var(--primary);
   text-align: center;
   padding: 1.5rem 2rem;
@@ -138,7 +165,7 @@ hr {
 }
 
 /* info */
-.info{
+.info {
   background: var(--primary);
   box-shadow: var(--shadow);
   display: grid;
@@ -148,66 +175,69 @@ hr {
 }
 
 /* portfolio */
-.portfolio{
+.portfolio-images {
   display: grid;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
-.portfolio > h1{
-  font-size: 3rem;
-  grid-column: 1/-1;
+#portfolio > h1 {
+  font-size: 3.2rem;
+  text-align: center;
 }
-.portfolio > img{
+#portfolio > p {
+  text-align: center;
+}
+.portfolio-images > img {
   width: 100%;
   box-shadow: var(--shadow);
 }
 
 /* footer */
-footer{
+footer {
   margin-top: 2rem;
   background: var(--dark);
-  color: var(--light); 
+  color: var(--light);
   text-align: center;
   padding: 2rem;
 }
 
 /* media queries */
-@media (max-width: 700px){
-  .showcase > h1, .portfolio > h1{
+@media (max-width: 700px) {
+  .showcase > h1,
+  .portfolio-images > h1 {
     font-size: 2.5rem;
   }
-  .top-container{
-    grid-template-areas: 
-      'showcase showcase'
-      'top-box-a top-box-b';
+  .top-container {
+    grid-template-areas:
+      "showcase showcase"
+      "top-box-a top-box-b";
   }
-  .wrapper{
+  .wrapper {
     grid-gap: 0.5rem;
   }
-  .main-nav ul{
+  .main-nav ul {
     grid-gap: 0.5rem;
   }
-  .main-nav > ul{
+  .main-nav > ul {
     grid-template-columns: 1fr;
   }
-  .info{
+  .info {
     grid-template-columns: 1fr;
   }
-  .info .btn{
+  .info .btn {
     display: block;
     text-align: center;
   }
 }
 
-@media(max-width: 500px){
-  .top-container{
-    grid-template-areas: 
-      'showcase '
-      'top-box-a'
-      'top-box-b';
+@media (max-width: 500px) {
+  .top-container {
+    grid-template-areas:
+      "showcase "
+      "top-box-a"
+      "top-box-b";
   }
-  .showcase > h1{
+  .showcase > h1 {
     font-size: 2.2rem;
   }
 }
-
